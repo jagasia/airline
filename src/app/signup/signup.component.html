@@ -1,0 +1,12 @@
+<form [formGroup]="signupForm">
+    User Name: <input type="text" name="" id="" formControlName="username" class="form-control">
+    Password: <input type="password" name="" id="" formControlName="password" class="form-control">
+    Confirm Password: <input type="password" name="" id="" formControlName="cpassword" class="form-control">
+    First Name: <input type="text" name="" id="" formControlName="firstName" class="form-control">
+    Last Name: <input type="text" name="" id="" formControlName="lastName" class="form-control">
+    Email: <input type="email" name="" id="" formControlName="email" class="form-control">
+    Phone: <input type="number" name="" id="" formControlName="phone" class="form-control">
+    <br>
+    <input type="button" value="Sign Up" class="btn btn-success" (click)="fnSignup()">&nbsp;
+    <input type="reset" value="Reset" class="btn btn-warning">
+</form>

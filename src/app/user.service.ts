@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,26 @@ import { Injectable } from '@angular/core';
 export class UserService {
   url:string='http://localhost:8080/user';
   constructor(private http:HttpClient) { }
+
+  checkLoginStatus()
+  {    
+    // alert('check login statyus')
+    const myObservable=new Observable(observer=>{
+      setTimeout(()=>{
+        var status='login';
+        var loggedUserName=localStorage.getItem("user");
+        // alert(loggedUserName)
+        if(loggedUserName!=null)
+        {
+          status='logout';
+          // alert('changing to Logout');
+        } 
+        observer.next(status);
+      },100);
+    });
+    return myObservable;
+  }
+
 
   signup(user:any)
   {

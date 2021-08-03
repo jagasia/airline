@@ -5,4 +5,4 @@
     <input type="button" value="Login" class="btn btn-success" (click)="fnLogin()">&nbsp;
     <input type="reset" value="Reset" class="btn btn-warning">
 </form>
-<div>{{result | json}}</div>
+<div *ngIf="result!=null" class="alert alert-danger">{{result | json}}</div>

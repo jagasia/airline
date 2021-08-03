@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MenuComponent } from './menu/menu.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +18,16 @@ import { LoginComponent } from './login/login.component';
     AirlineComponent,
     UserComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

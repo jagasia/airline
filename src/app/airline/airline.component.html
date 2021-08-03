@@ -1,0 +1,40 @@
+<form [formGroup]="airlineForm">
+    Id  <input type="number" name="" id="" formControlName="id" class="form-control">
+    Name <input type="text" name="" id="" formControlName="name" class="form-control">
+    Country <input type="text" name="" id="" formControlName="country" class="form-control">
+    Logo <input type="text" name="" id="" formControlName="logo" class="form-control">
+    Slogan <input type="text" name="" id="" formControlName="slogan" class="form-control">
+    Head Quaters <input type="text" name="" id="" formControlName="head_quaters" class="form-control">
+    Website <input type="text" name="" id="" formControlName="website" class="form-control">
+    Established <input type="number" name="" id="" formControlName="established" class="form-control">
+    <br>
+    <input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">&nbsp;
+    <input type="reset" value="Reset" class="btn btn-warning">
+</form>
+{{airlineForm.value | json}}
+<br>
+    <table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Logo</th>
+        <th>Slogan</th>
+        <th>Head Quaters</th>
+        <th>Website</th>
+        <th>Established</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of airlines">
+            <td>{{a.id}}</td>
+            <td>{{a.name}}</td>
+            <td>{{a.country}}</td>
+            <!-- <td>{{a.logo}}</td> -->
+            <td><img width="100" height="75" [src]="a.logo"></td>
+            <td>{{a.slogan}}</td>
+            <td>{{a.head_quaters}}</td>
+            <td>{{a.website}}</td>
+            <td>{{a.established}}</td>
+        </tr>
+    </tbody>
+</table>

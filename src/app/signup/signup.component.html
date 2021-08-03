@@ -6,7 +6,10 @@
     Last Name: <input type="text" name="" id="" formControlName="lastName" class="form-control">
     Email: <input type="email" name="" id="" formControlName="email" class="form-control">
     Phone: <input type="number" name="" id="" formControlName="phone" class="form-control">
+    <input type="button" value="Generate Otp" (click)="fnGenerateOtp()">{{message}} <br>
+    Enter Otp: <input type="text" name="abcd" id="" [(ngModel)]="txtOtp"  (keyup)="fnValidateOtp()" formControlName="otp">
     <br>
-    <input type="button" value="Sign Up" class="btn btn-success" (click)="fnSignup()">&nbsp;
+    <input type="button" value="Sign Up" class="btn btn-success" (click)="fnSignup()" [ngClass]="{disabled : x}" >&nbsp;
     <input type="reset" value="Reset" class="btn btn-warning">
 </form>
+{{txtOtp}}

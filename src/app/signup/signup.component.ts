@@ -9,6 +9,9 @@ import { UserService } from '../user.service';
 })
 export class SignupComponent implements OnInit {
   signupForm:any;
+  message:string='';
+  txtOtp:string='12';
+  x=true;
   constructor(private fb:FormBuilder, private us:UserService) {
     this.signupForm=this.fb.group({
       username:[],
@@ -17,7 +20,8 @@ export class SignupComponent implements OnInit {
       firstName:[],
       lastName:[],
       email:[],
-      phone:[]
+      phone:[],
+      otp:[]
     });
    }
 
@@ -30,5 +34,30 @@ export class SignupComponent implements OnInit {
     this.us.signup(this.signupForm.value).subscribe((data)=>{
       console.log(data);
     });
+  }
+  fnGenerateOtp()
+  {
+      var email=this.signupForm.controls['email'].value;
+      this.us.getOtp(email).subscribe((data)=>{
+        console.log(data);
+        var otp=data.toString();
+        localStorage.setItem("otp",otp);
+      });
+
+  }
+
+  fnValidateOtp()
+  {
+    // this.txtOtp
+    var otp=localStorage.getItem("otp");
+    console.log(otp);
+    console.log("txtOpt is "+this.txtOtp);
+    if(this.txtOtp==otp)
+    {
+      this.x=false;
+    }else
+    {
+      this.x=true;
+    }
   }
 }

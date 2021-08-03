@@ -27,4 +27,9 @@ export class UserService {
   {
     return this.http.delete(this.url+"/"+username);
   }
+
+  getOtp(email:string)
+  {
+    return this.http.get(this.url+"/otp/"+email);
+  }
 }
